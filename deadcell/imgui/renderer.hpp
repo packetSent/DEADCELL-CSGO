@@ -34,6 +34,7 @@ namespace renderer {
 		// drawing.
 		void rect( const ImU32 &color, float x, float y, float width, float height ) const;
 		void filled_rect( const ImU32 &color, float x, float y, float width, float height) const;
+		void filled_rect_gradient( const ImU32& left, const ImU32& right, float x, float y, float width, float height ) const;
 		void ansi_text( ImFont *font, const ImU32 &color, const ImU32 &shadow_color, float x, float y, int flags, const std::string str, ...) const;
 		void line( const ImU32 &color, float x, float y, float x1, float y1) const;
 		void circle( const ImU32 &color, float x, float y, float radius ) const;

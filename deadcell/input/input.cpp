@@ -32,9 +32,6 @@ bool input_mngr::init( HWND wnd ) {
 }
 
 bool input_mngr::handle( HWND hwnd, UINT msg, WPARAM wparam, LPARAM lparam ) {
-	if( !(GetForegroundWindow( ) == m_window_handle) )
-		return false;
-
 	switch( msg ) {
 		// left mouse
 		case WM_LBUTTONDOWN:
@@ -118,9 +115,14 @@ bool input_mngr::handle( HWND hwnd, UINT msg, WPARAM wparam, LPARAM lparam ) {
 	}
 
 	if( is_clicked )
-		g_menu.is_active() = !g_menu.is_active();
+		g_menu.is_active( ) = !g_menu.is_active( );
 
-	return g_menu.is_active() && ImGui_ImplWin32_WndProcHandler( hwnd, msg, wparam, lparam );
+	if( g_menu.is_active( ) ){
+		ImGui_ImplWin32_WndProcHandler( hwnd, msg, wparam, lparam );
+		return true;
+	}
+
+	return false;
 }
 
 bool input_mngr::remove() {

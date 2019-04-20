@@ -59,7 +59,7 @@
     <ClCompile Include="csgo\hooking\manager.cpp" />
     <ClCompile Include="csgo\menu\menu.cpp" />
     <ClCompile Include="csgo\hooking\hooks\DrawSetColor.cpp" />
-    <ClCompile Include="csgo\menu\tabs\tab_visuals.cpp" />
+    <ClCompile Include="csgo\menu\tabs\tabs.cpp" />
     <ClCompile Include="csgo\menu\ui.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -86,7 +86,7 @@
     <ClInclude Include="csgo\inc.h" />
     <ClInclude Include="csgo\json.h" />
     <ClInclude Include="csgo\menu\menu.h" />
-    <ClInclude Include="csgo\menu\tabs\tab_visuals.h" />
+    <ClInclude Include="csgo\menu\tabs\tabs.h" />
     <ClInclude Include="csgo\menu\ui.h" />
     <ClInclude Include="csgo\sdk\address.h" />
     <ClInclude Include="csgo\sdk\csgo\csgo.h" />

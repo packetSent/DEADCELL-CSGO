@@ -803,7 +803,7 @@ void c_visuals::watermark( ) const {
 
 	const ImVec2 display_size = ImGui::GetIO( ).DisplaySize;
 
-	g_renderer.filled_rect( ImColorARGB( 225, 24, 24, 32 ), display_size.x - 270, 20, 250, 15 ); // removed gradient (temp)
+	g_renderer.filled_rect_gradient( ImColorARGB( 225, 24, 24, 32 ), ImColorARGB( 10, 24, 24, 32 ), display_size.x - 270, 20, 250, 15 );
 
 	time_t t = std::time( nullptr );
 	tm tm = *std::localtime( &t );

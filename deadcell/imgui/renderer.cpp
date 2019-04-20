@@ -48,7 +48,7 @@ void c_renderer::init( IDirect3DDevice9Ex *device ) {
 		io.Fonts->AddFontAwesome( 56.0f );
 		
 		// misc fonts
-		m_fonts[ FONT_VERDANA_7PX ] = io.Fonts->AddFontFromFileTTF( verdana.data( ), 12.0f, nullptr, io.Fonts->GetGlyphRangesDefault( ) );
+		m_fonts[ FONT_VERDANA_7PX ] = io.Fonts->AddFontFromFileTTF( verdana.data( ), 11.0f, nullptr, io.Fonts->GetGlyphRangesDefault( ) );
 		m_fonts[ FONT_VERDANA_BOLD_7PX ] = io.Fonts->AddFontFromFileTTF( verdana_bold.data( ), 12.0f, nullptr, io.Fonts->GetGlyphRangesDefault( ) );
 		m_fonts[ FONT_04B03_6PX ] = m_fonts[ FONT_VERDANA_7PX ];
 		m_fonts[ FONT_LUCIDA_CONSOLE_7PX ] = m_fonts[ FONT_VERDANA_7PX ];
@@ -97,6 +97,10 @@ void c_renderer::rect( const ImU32 &color, float x, float y, float width, float 
 
 void c_renderer::filled_rect( const ImU32 &color, float x, float y, float width, float height ) const {
 	ImGui::GetWindowDrawList( )->AddRectFilled( { x, y }, { x + width, y + height }, color );
+}
+
+void c_renderer::filled_rect_gradient( const ImU32 &left, const ImU32 &right, float x, float y, float width, float height ) const {
+	ImGui::GetWindowDrawList( )->AddRectFilledMultiColor( { x, y }, { x + width, y + height }, left, right, right, left );
 }
 
 void c_renderer::ansi_text( ImFont *font, const ImU32 &color, const ImU32 &shadow_color, float x, float y, int flags, const std::string str, ... ) const {

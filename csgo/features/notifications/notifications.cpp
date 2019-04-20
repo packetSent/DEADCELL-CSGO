@@ -43,8 +43,8 @@ void c_notifications::draw( ) {
 	for( size_t i = 0; i < m_notifications.size( ); i++ ) {
 		auto &notification = m_notifications.at( i );
 
-		ImColorARGB color( notification.color );
-		ImColorARGB shadow_color( notification.background_color );
+		ImColorARGB color{ notification.color };
+		ImColorARGB shadow_color{ notification.background_color };
 
 		const float cur_time = notification.m_time;
 		std::string message = notification.m_buf;

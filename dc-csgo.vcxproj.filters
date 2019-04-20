@@ -223,7 +223,7 @@
     <ClCompile Include="csgo\menu\ui.cpp">
       <Filter>dc-csgo\menu</Filter>
     </ClCompile>
-    <ClCompile Include="csgo\menu\tabs\tab_visuals.cpp">
+    <ClCompile Include="csgo\menu\tabs\tabs.cpp">
       <Filter>dc-csgo\menu\tabs</Filter>
     </ClCompile>
   </ItemGroup>
@@ -471,7 +471,7 @@
     <ClInclude Include="csgo\menu\ui.h">
       <Filter>dc-csgo\menu</Filter>
     </ClInclude>
-    <ClInclude Include="csgo\menu\tabs\tab_visuals.h">
+    <ClInclude Include="csgo\menu\tabs\tabs.h">
       <Filter>dc-csgo\menu\tabs</Filter>
     </ClInclude>
   </ItemGroup>

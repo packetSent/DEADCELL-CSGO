@@ -1,6 +1,6 @@
 #include "../inc.h"
 
-#include "tabs/tab_visuals.h"
+#include "tabs/tabs.h"
 
 c_menu::c_menu( )
 	: m_is_active{ true } { }
@@ -14,22 +14,21 @@ void c_menu::init( IDirect3DDevice9 * device )
 	ImGui_ImplWin32_Init( g_input.get_window_handle() );
 	ImGui_ImplDX9_Init( m_device );*/
 
-	ui::setup_style();
+	ui::setup_style( );
 }
 
 void c_menu::render()
 {
 	if ( !m_is_active )
 		return;
+	
+	if ( ImGui::Begin( "deadcell nigga", &is_active(), ImVec2( 900, 600 ), 1.0f, ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_NoTitleBar ) ) {
+		ui::window_bar( );
+		ui::tabs( );
 
-	if ( ImGui::Begin( "looooooooooooooooool", &is_active(), ImVec2( 997.0f, 600.0f ), 1.0f, ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_NoTitleBar ) )
-	{
-		ui::window_bar();
-		ui::tabs();
-
-		switch ( m_current_tab )
-		{
+		switch ( m_current_tab ) {
 			case TAB_AIMBOT:
+				ui::tab::ragebot();
 				break;
 			case TAB_VISUALS:
 				ui::tab::visuals();
@@ -42,17 +41,15 @@ void c_menu::render()
 				break;
 		}
 
-		ImGui::End();
+		ImGui::End( );
 	}
 
 }
 
-bool& c_menu::is_active()
-{
+bool& c_menu::is_active( ) {
 	return m_is_active;
 }
 
-int & c_menu::get_active_tab()
-{
+int & c_menu::get_active_tab( ) {
 	return m_current_tab;
 }
