@@ -110,6 +110,8 @@ void c_antiaim::adjust_yaw( c_user_cmd *ucmd ) {
 
 	static bool side = true;
 	static int last_tickcount = 0;
+	static int rotate_start = 0;
+	static int sleep_time = 500;
 
 	if( g_input.key_pressed( g_vars.antiaim.side_switch_key ) && last_tickcount < int( GetTickCount( ) ) ) {
 		side = !side;
@@ -124,6 +126,16 @@ void c_antiaim::adjust_yaw( c_user_cmd *ucmd ) {
 				else
 					at_target( ) != 0.f ? m_input.y = at_target( ) + 90.f : m_input.y += 90.f;
 				break;
+			case 2:
+				negative_rotate_amount = -rotate_amount;
+				if( rotate_start <= rotate_amount )
+					rotate_start = rotate_start + 1
+					Sleep( sleep_time );
+				else if( rotate_start <= negative_rotate_amount )
+					rotate_start = rotate_start - 1
+					Sleep( sleep_time );
+				break;
+					
 			default:
 				if( g_vars.antiaim.yaw > 1 )
 					chai_yaw( ucmd );
@@ -151,6 +163,15 @@ void c_antiaim::adjust_pitch( c_user_cmd *ucmd ) {
 	switch( g_vars.antiaim.pitch ) {
 		case 1:
 			m_input.x = 89.f;
+			break;
+		case 2:
+			m_input.x = 90.f;
+			break;
+		case 3:
+			m_input.x = -90.f;
+			break;
+		case 4:
+			m_input.x = 1.f;
 			break;
 		default:
 			if( g_vars.antiaim.pitch > 1 )
